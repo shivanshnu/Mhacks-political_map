@@ -1,199 +1,352 @@
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+
+  padding: 0;
+
+  box-sizing: border-box;
 }
 
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
-    color: #333;
+  font-family: Arial, sans-serif;
+
+  background-color: #f4f4f4;
+
+  color: #333;
+}
+
+body.background {
+  background-image: url("BB.png"); /* Path to your background image */
+
+  background-size: cover; /* Cover the entire viewport */
+
+  background-repeat: no-repeat; /* Do not repeat the image */
+
+  background-position: center; /* Center the image */
 }
 
 header {
-    padding: 20px;
-    text-align: center;
-    color: white;
-    padding-top:60px;
+  padding: 20px;
+
+  text-align: center;
+
+  color: white;
+
+  padding-top: 60px;
+}
+
+header {
+  display: flex;
+
+  align-items: center; /* Aligns items vertically centered */
+}
+
+.logo {
+  width: 100px; /* Set this to the desired width */
+
+  height: auto; /* Maintains aspect ratio */
+
+  margin-right: 10px; /* Space between logo and title */
+
+  transition: transform 0.3s ease; /* Smooth transition for zoom effect */
+}
+
+.logo:hover {
+  transform: scale(1.1); /* Zoom effect on hover */
 }
 
 h1 {
-    font-size: 2rem;
+  font-size: 2rem;
+
+  background: white; /* Dark purple to purple gradient */
+
+  -webkit-background-clip: text; /* Ensure the gradient clips to the text */
+
+  -webkit-text-fill-color: transparent; /* Make the text transparent to show the gradient */
 }
 
 h2 {
-    font-size: 1.5rem;
-    margin: 20px 0;
+  color: white;
+
+  font-size: 1.5rem;
+
+  margin: 20px 0;
 }
 
 section {
-    margin: 20px auto;
-    width: 80%;
+  margin: 20px auto;
+
+  width: 80%;
 }
 
-#map-section, #candidate-section, #quiz-section {
-    background-color: white;
-    padding: 20px;
-    margin-bottom: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+#map-section,
+#candidate-section,
+#quiz-section {
+  background: linear-gradient(to top, pink, purple); /* Pink to purple gradient */
+
+  padding: 20px;
+
+  margin-bottom: 20px;
+
+  border-radius: 10px;
+
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 #map {
-    height: 400px;
+  height: 400px;
 }
 
 form {
-    display: flex;
-    flex-direction: column;
-    width: 50%;
-    margin: 20px 0;
+  display: flex;
+
+  flex-direction: column;
+
+  width: 50%;
+
+  margin: 20px 0;
 }
 
 button {
-    padding: 10px;
-    background-color: #2a9d8f;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 1rem;
+  padding: 10px;
+
+  background-color: purple;
+
+  color: white;
+
+  border: none;
+
+  border-radius: 5px;
+
+  cursor: pointer;
+
+  font-size: 1rem;
 }
 
 button:hover {
-    background-color: #21867a;
+  background-color: rgb(64, 1, 52);
 }
 
 #quiz-result {
-    margin-top: 20px;
-    font-size: 1.2rem;
-    color: #2a9d8f;
+  margin-top: 20px;
+
+  font-size: 1.2rem;
+
+  color: #2a9d8f;
 }
-@import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap');
-*{
+
+@import url("https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap");
+
+* {
   margin: 0;
+
   padding: 0;
+
   box-sizing: border-box;
-  font-family: 'Poppins', sans-serif;
+
+  font-family: "Poppins", sans-serif;
 }
-html,body{
+
+html,
+body {
   display: grid;
+
   height: 100%;
+
   text-align: center;
+
   place-items: center;
+
   background-attachment: fixed;
 }
+
 .slider {
-    width: 600px; /* Can be in percentage also. */
-    height: auto;
-    margin: 0 auto;
-    padding: 10px;
-    position: relative;
-}
-.range{
-  height: 80px;
-  width: 600px;
-  background: #fff;
-  border-radius: 10px;
-  padding: 0 65px 0 65px;
-  box-shadow: 2px 4px 8px rgba(0,0,0,0.1);
-}
-.sliderValue{
+  width: 600px; /* Can be in percentage also. */
+
+  height: auto;
+
+  margin: 0 auto;
+
+  padding: 10px;
+
   position: relative;
+}
+
+.range {
+  height: 80px;
+
+  width: 600px;
+
+  background: #fff;
+
+  border-radius: 10px;
+
+  padding: 0 65px 0 65px;
+
+  box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.sliderValue {
+  position: relative;
+
   width: 100%;
 }
-.sliderValue span{
+
+.sliderValue span {
   position: absolute;
+
   height: 45px;
+
   width: 45px;
+
   transform: translateX(-50%) scale(0);
+
   font-weight: 500;
+
   top: -40px;
+
   line-height: 55px;
+
   z-index: 2;
+
   color: #fff;
+
   transform-origin: bottom;
+
   transition: transform 0.3s ease-in-out;
 }
-.sliderValue span.show{
+
+.sliderValue span.show {
   transform: translateX(-50%) scale(1);
 }
-.sliderValue span:after{
+
+.sliderValue span:after {
   position: absolute;
-  content: '';
+
+  content: "";
+
   height: 100%;
+
   width: 100%;
-  background: rgb(14, 0, 117);
+
+  background: purple;
+
   border: 3px solid #fff;
+
   z-index: -1;
+
   left: 50%;
+
   transform: translateX(-50%) rotate(45deg);
+
   border-bottom-left-radius: 50%;
-  box-shadow: 0px 0px 8px rgba(0,0,0,0.1);
+
+  box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.1);
+
   border-top-left-radius: 50%;
+
   border-top-right-radius: 50%;
 }
-.field{
+
+.field {
   display: flex;
+
   align-items: center;
+
   justify-content: center;
+
   height: 100%;
+
   position: relative;
 }
-.field .value{
+
+.field .value {
   position: absolute;
+
   font-size: 18px;
-  color: rgb(14, 0, 117);
+
+  color: purple;
+
   font-weight: 600;
 }
-.field .value.left{
+
+.field .value.left {
   left: -40px;
 }
-.field .value.right{
+
+.field .value.right {
   right: -43px;
 }
-.range input{
+
+.range input {
   -webkit-appearance: none;
+
   width: 100%;
+
   height: 3px;
+
   background: #ddd;
+
   border-radius: 5px;
+
   outline: none;
+
   border: none;
+
   z-index: 2222;
 }
-.range input::-webkit-slider-thumb{
+
+.range input::-webkit-slider-thumb {
   -webkit-appearance: none;
+
   width: 20px;
+
   height: 20px;
+
   background: red;
+
   border-radius: 50%;
-  background: rgb(14, 0, 117);
-  border: 1px solid rgb(14, 0, 117);
+
+  background: purple;
+
+  border: 1px solid purple;
+
   cursor: pointer;
 }
-.range input::-moz-range-thumb{
+
+.range input::-moz-range-thumb {
   -webkit-appearance: none;
+
   width: 20px;
+
   height: 20px;
+
   background: red;
+
   border-radius: 50%;
-  background: rgb(14, 0, 117);
-  border: 1px solid rgb(14, 0, 117);
+
+  background: purple;
+
+  border: 1px solid purple;
+
   cursor: pointer;
 }
-.range input::-moz-range-progress{
-  background: rgb(14, 0, 117); 
+
+.range input::-moz-range-progress {
+  background: purple;
 }
-.main{
-    padding-bottom: 20px;
+
+.main {
+  padding-bottom: 20px;
 }
+
 .background {
-    background-image: 
-    linear-gradient(rgba(44, 1, 90, 0.9), rgba(0, 0, 0, 0.1)), /* Transparent gradient */
-    url('BB.png');
-    background-size: cover; /* Options: cover, contain, or specific size */
-    background-repeat: no-repeat; /* Prevents the image from repeating */
-    background-position: center; /* Centers the image */
-    height: 100vh; /* Ensures the body takes full viewport height */
+  background-image: linear-gradient(rgba(44, 1, 90, 0.9), rgba(0, 0, 0, 0.1)), /* Transparent gradient */ url("BB.png");
+
+  background-size: cover; /* Options: cover, contain, or specific size */
+
+  background-repeat: no-repeat; /* Prevents the image from repeating */
+
+  background-position: center; /* Centers the image */
+
+  height: 100vh; /* Ensures the body takes full viewport height */
 }
