@@ -1,6 +1,6 @@
 path {
     stroke: white;
-    fill:paleturquoise !important;
+    fill:rgb(230, 230, 230) !important;
     transition: fill .4s ease;
     transform-origin: center center;
 }
@@ -8,7 +8,6 @@ path {
 path:hover {
     fill: orange !important;
     cursor: pointer;
-    transform: scale(1.005, 1.005);
 }
 
 #map-container {
@@ -23,6 +22,7 @@ path:hover {
     left: 0;
     width: 100%;
     height: 100%;
+    padding-right: 100px;
 }
 
 #details-box {
