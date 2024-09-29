@@ -6,6 +6,8 @@ var submitButton = document.getElementById("submit-button");
 
 var inputField = document.getElementById("userInput"); // Changed to match your HTML
 
+var yearRange = document.getElementById("year-range"); // Changed to match your HTML
+
 var resultBox = document.getElementById("result"); // Changed to match your HTML
 
 // Event listener for mouseover to show tooltip and change color
@@ -14,15 +16,33 @@ document.addEventListener("mouseover", function (e) {
   if (e.target.tagName === "path") {
     // Get the name for the tooltip
 
-    var content = e.target.dataset.name;
+    const state = e.target.dataset.name; //Example: Michigan
+    const year = yearRange.value; // Example: 1976
 
-    detailsBox.innerHTML = content;
-
+    detailsBox.innerHTML = state;
     detailsBox.style.opacity = "1"; // Use 1 instead of "100%"
-
     e.target.setAttribute("fill", "rgb(200, 200, 200)"); // Example default color
 
-    // console.log("Hovered element:", e.target);
+    console.log("State:", state, year);
+    // Example JavaScript code to call the Flask API
+
+    // Construct the API URL with query parameters for 'year' and 'state'
+    const apiUrl = `http://127.0.0.1:5000/api/elections?year=${year}&state=${state}`;
+
+    fetch(apiUrl)
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error("Network response was not ok");
+        }
+        return response.json(); // Parse the JSON from the response
+      })
+      .then((data) => {
+        console.log(data); // Handle the JSON response data
+        // Do something with the election data (e.g., display it on the webpage)
+      })
+      .catch((error) => {
+        console.error("There was a problem with the fetch operation:", error);
+      });
   } else {
     // Hide tooltip if the mouse is not over a path
 
@@ -36,7 +56,7 @@ document.addEventListener("mouseout", function (e) {
   if (e.target.tagName === "path") {
     // Reset to default color
 
-    e.target.setAttribute("fill", "rgb(230, 230, 230)");
+    e.target.setAttribute("fill", "rgb(128, 0, 128)");
   }
 });
 
