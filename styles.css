@@ -188,3 +188,12 @@ html,body{
 .main{
     padding-bottom: 20px;
 }
+.background {
+    background-image: 
+    linear-gradient(rgba(44, 1, 90, 0.9), rgba(0, 0, 0, 0.1)), /* Transparent gradient */
+    url('BB.png');
+    background-size: cover; /* Options: cover, contain, or specific size */
+    background-repeat: no-repeat; /* Prevents the image from repeating */
+    background-position: center; /* Centers the image */
+    height: 100vh; /* Ensures the body takes full viewport height */
+}
