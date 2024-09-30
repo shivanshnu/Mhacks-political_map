@@ -19,7 +19,6 @@ document.addEventListener("mouseover", function (e) {
     const state = e.target.dataset.name; //Example: Michigan
     const year = yearRange.value; // Example: 1976
 
-    detailsBox.innerHTML = state;
     detailsBox.style.opacity = "1"; // Use 1 instead of "100%"
     e.target.setAttribute("fill", "rgb(200, 200, 200)"); // Example default color
 
@@ -38,6 +37,38 @@ document.addEventListener("mouseover", function (e) {
       })
       .then((data) => {
         console.log(data); // Handle the JSON response data
+        // Initialize vote counts
+        let republicanVotes = 0;
+        let democratVotes = 0;
+        let totalVotes = 0;
+
+        // Iterate through the results to sum up votes
+        data.forEach((candidate) => {
+          totalVotes += candidate.candidatevotes;
+          if (candidate.party_detailed === "REPUBLICAN") {
+            republicanVotes += candidate.candidatevotes;
+          } else if (candidate.party_detailed === "DEMOCRAT") {
+            democratVotes += candidate.candidatevotes;
+          }
+        });
+        let demratio = (democratVotes / totalVotes) * 100;
+        let repratio = (republicanVotes / totalVotes) * 100;
+        detailsBox.innerHTML =
+          state +
+          "\nRepublican: " +
+          republicanVotes +
+          " | " +
+          repratio.toFixed(2) +
+          "%" +
+          "\nDemocrats: " +
+          democratVotes +
+          " | " +
+          demratio.toFixed(2) +
+          "%";
+
+        // Log the results
+        console.log(`Republican Votes: ${republicanVotes}`);
+        console.log(`Democrat Votes: ${democratVotes}`);
         // Do something with the election data (e.g., display it on the webpage)
       })
       .catch((error) => {

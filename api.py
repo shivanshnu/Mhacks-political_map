@@ -35,17 +35,17 @@ def get_election_data():
     print(f"MongoDB Query: {query}")
     # results = collection.find(query)
     
-    # data = []
-    # for result in results:
-    #     result['_id'] = str(result['_id'])  # Convert ObjectId to string for JSON serialization
-    #     data.append(result)
-    # Fetch documents matching the query
     results = collection.find(query)
-    print(results.retrieved)
+    data = []
+    for result in results:
+        result['_id'] = str(result['_id'])  # Convert ObjectId to string for JSON serialization
+        data.append(result)
+    # Fetch documents matching the query
+    # print(results.retrieved)
 
     # Convert the cursor to a list to retrieve documents
-    data = list(results)
-    #print(data)
+    # data = list(results)
+    print(data)
     return jsonify(data), 200
 
 
