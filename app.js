@@ -89,15 +89,14 @@ document.addEventListener("mouseout", function (e) {
 
     e.target.setAttribute("fill", "rgb(128, 0, 128)");
   }
+  console.log("Hovered element:", e.target);
+  console.log("Party:", party);
 });
 
 // Update tooltip position based on mouse movement
-
 window.onmousemove = function (e) {
   var x = e.clientX,
     y = e.clientY;
-
   detailsBox.style.top = y + 20 + "px";
-
   detailsBox.style.left = x + "px";
 };

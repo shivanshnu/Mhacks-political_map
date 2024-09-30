@@ -12,11 +12,8 @@
   </head>
   <body class="background">
     <header>
-      <img src="logo.png" alt="Logo" class="logo" />
-      <h1>VisionVote</h1>
+      <h1>Political Education Tool</h1>
     </header>
-
-    <div id="root"></div>
 
     <section id="map-section">
       <h2 class="main">Hover Over Your Region</h2>
@@ -470,16 +467,20 @@
       </div>
     </section>
 
-    <div class="container">
-      <h1>Find Your Political Party Alignment</h1>
-      <form id="candidate-section">
-        <label for="userInput">Describe your political interests:</label>
-        <textarea id="userInput" rows="5" placeholder="Enter your interests here"></textarea>
-        <button id="submit">Find My Party</button>
+    <section id="quiz-section">
+      <h2>Find Your Candidate</h2>
+      <form id="quiz-form">
+        <label for="policy-priority">What's your top policy priority?</label>
+        <select id="policy-priority">
+          <option value="economy">Economy</option>
+          <option value="healthcare">Healthcare</option>
+          <option value="education">Education</option>
+          <option value="environment">Environment</option>
+        </select>
+        <button type="submit">Get Recommendation</button>
       </form>
-      <div id="result"></div>
-      <!-- Area to display the result -->
-    </div>
+      <div id="quiz-result"></div>
+    </section>
 
     <script src="app.js"></script>
   </body>
